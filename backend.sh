@@ -46,7 +46,7 @@ id expense &>>$LOG_FILE_NAME
 if [ $? -ne 0 ]
 then
     useradd expense &>>$LOG_FILE_NAME
-    echo "expense user not found. Creating the user" &>>$LOG_FILE_NAME
+    VALIDATE $? "Creating expense user"
 else
     echo -e "expense user already exists ... $Y SKIPPING $N"
 
@@ -58,6 +58,7 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 VALIDATE $? "Downloading backend code"
 
 cd /app
+rm -rf /app/* &>>$LOG_FILE_NAME #cleaning up the app directory if any files are present
 
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "Extracting backend code"
