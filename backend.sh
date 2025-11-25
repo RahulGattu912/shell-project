@@ -33,6 +33,12 @@ echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
 
+# Create log directory if not exists
+if [ ! -d "$LOGS_FOLDER" ]; then
+    mkdir -p "$LOGS_FOLDER"
+    VALIDATE $? "Creating logs directory at $LOGS_FOLDER"
+fi
+
 dnf module disable nodejs -y &>>$LOG_FILE_NAME
 VALIDATE $? "Disabling NodeJS module"
 
