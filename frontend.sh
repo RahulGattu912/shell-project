@@ -45,7 +45,8 @@ VALIDATE $? "Starting Nginx Server"
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE_NAME
 VALIDATE $? "Removing existing version of code"
 
-curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE_NAME
+# curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE_NAME
+curl -o /tmp/frontend.zip "https://drive.google.com/uc?export=download&id=1TEhHfan_KInZRtMvJWLrQ7k90qtbOqol" &>>$LOG_FILE_NAME
 VALIDATE $? "Downloading Latest code"
 
 cd /usr/share/nginx/html
