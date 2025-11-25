@@ -84,7 +84,7 @@ dnf install mysql -y &>>$LOG_FILE_NAME
 VALIDATE $? "Installing MySQL Client"
 
 mysql -h mysql.learndevops.online -u root -pExpenseApp@1 < /app/expense-backend/schema/backend.sql &>>$LOG_FILE_NAME
-VALIDATE $? "Setting up the tranactions schema and tables"
+VALIDATE $? "Setting up the transactions schema and tables"
 
 systemctl daemon-reload &>>$LOG_FILE_NAME
 VALIDATE $? "Reloading systemd services"
