@@ -70,6 +70,9 @@ rm -rf /app/* &>>$LOG_FILE_NAME #cleaning up the app directory if any files are 
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "Extracting backend code"
 
+cd /app/expense-backend
+VALIDATE $? "Switch to backend folder"
+
 npm install &>>$LOG_FILE_NAME
 VALIDATE $? "Installing backend dependencies"
 
